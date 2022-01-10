@@ -1,0 +1,7 @@
+.active{
+    border-bottom: 2px solid #ffff;
+}
+
+.cursore-pointer{
+    cursor: pointer !important;
+}

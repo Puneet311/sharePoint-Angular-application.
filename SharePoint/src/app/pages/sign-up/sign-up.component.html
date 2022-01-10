@@ -1,0 +1,104 @@
+<div class="row col-8 offset-2 mt-5">
+  <div class="card">
+      <div class="card-header text-center text-info">
+          Sign Up
+      </div>
+    <div class="card-body">
+        <form [formGroup]="signUpForm">
+            <div>
+        <div class="form-group border border-3 border-secondary text-center rounded-3 imgdiv">
+            <label for="imagepicker">
+                <img [src]="picture" class="profile" width="70px" height="70px">
+            </label>
+            <input 
+            type="file" 
+            name="image" 
+            id="imagepicker" 
+            multiple="{false}"
+            class="hidden"
+            hidden
+            (change)="uploadFileLocal($event)"
+            >
+        </div>
+        <button class="btn btn-secondary float-end" *ngIf="showUploadButton" (click)="uploadFile()">Upload Image</button>
+        <div class="text-black float-end display-6 imguploadmesg" *ngIf="uploadPercent && uploadPercent !== 100">Uploading {{uploadPercent | number: '1.0-0'}} % of 100%</div>
+        <div class="text-success float-end display-6 imguploadmesg" *ngIf="uploadPercent === 100 && !showUploadButton">Upload finished</div>
+    </div>
+       
+        <div class="form-group mt-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text"
+             class="form-control"
+            id="name"
+            placeholder="Enter your name"
+            formControlName="name"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email"
+             class="form-control"
+            id="email"
+            placeholder="Enter your email"
+            formControlName="email"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="dob" class="form-label">Date of Birth</label>
+            <input type="date"
+             class="form-control"
+            id="dob"
+            placeholder="Enter your dob(dd/mm/yy)"
+            formControlName="dob"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text"
+             class="form-control"
+            id="Username"
+            placeholder="Enter your Username"
+            formControlName="username"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password"
+             class="form-control"
+            id="password"
+            placeholder="Enter your Password"
+            formControlName="password"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="country" class="form-label">Country</label>
+            <input type="text"
+             class="form-control"
+            id="country"
+            placeholder="Enter your country"
+            formControlName="country"
+            >
+        </div>
+        <div class="form-group mt-2">
+            <label for="bio" class="form-label">Bio</label>
+            <textarea
+            class="form-control"
+            id="bio"
+            placeholder="Enter your bio"
+            formControlName="bio"
+            ></textarea>
+        </div>
+        <div class="mt-4 text-center">
+            <button 
+            type="submit"
+            (click)="onSubmit()"
+             class="btn btn-primary text-white"
+             [disabled]="signUpForm.controls.invalid"
+             >
+             Sign Up
+            </button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>

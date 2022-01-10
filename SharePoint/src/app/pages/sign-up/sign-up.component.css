@@ -1,0 +1,12 @@
+.imgdiv{
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+}
+
+.imguploadmesg{
+    position: relative;
+    top: -60px;
+}
