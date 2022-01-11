@@ -5,3 +5,6 @@
 .cursore-pointer{
     cursor: pointer !important;
 }
+.margin-bottom{
+    margin-bottom: -6px !important;
+}

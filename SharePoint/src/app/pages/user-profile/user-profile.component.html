@@ -1,0 +1,20 @@
+<div class="row mt-4">
+    <div class="col col-4 mt-4">
+        <app-user-profile-card [user]="user"></app-user-profile-card>
+    </div>
+    <div class="col col-8">
+        <h1 class="text-center text-muted">All Your Post</h1>
+        <div *ngIf="isLoading && usersImage.length === 0" class="mt-4 d-flex justify-content-center">
+            <div class="spinner-grow text-warning" style="width: 4rem; height: 4rem;" role="status">
+            </div>
+        </div>
+            <div *ngIf="!isLoading" class="d-flex flex-row mt-4">
+                <div *ngFor="let image of usersImage" class="image-div">
+                <img [src]="image" width="200px" height="200px">
+                </div>
+            </div>
+            <div *ngIf="!isLoading && usersImage.length === 0" class="mt-4">
+                <h4 class="text-white text-center">You have not posted anything till now! Go and post your image.</h4>
+            </div>
+    </div>
+</div>

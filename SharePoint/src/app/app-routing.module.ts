@@ -12,6 +12,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AddPostComponent } from './pages/add-post/add-post.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 const redirectUnauthorizedToSignin = () => redirectUnauthorizedTo(['signin']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['']);
@@ -38,6 +39,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToSignin },
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToSignin },
   },

@@ -1,0 +1,38 @@
+.div-rounded{
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    overflow: hidden !important;
+    position: relative;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+    /* border: 5px solid black; */
+}
+
+.bg-color{
+    background-color: #2e8080;
+}
+
+.maincard{
+    position: relative;
+}
+.card-body{
+    z-index: 5;
+}
+.curve-background{
+    position:absolute;
+    bottom: 0;
+    z-index:1;
+}
+
+.heading{
+    font-family: cursive;
+    font-weight: 800;
+    color: #000;
+}
+
+.sub-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+}

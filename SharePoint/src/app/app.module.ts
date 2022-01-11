@@ -26,6 +26,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserProfileCardComponent } from './components/user-profile-card/user-profile-card.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddPostComponent,
     SignInComponent,
     SignUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserProfileCardComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

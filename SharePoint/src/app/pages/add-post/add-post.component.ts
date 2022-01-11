@@ -54,6 +54,7 @@ export class AddPostComponent implements OnInit {
       picture:this.picture,
       by:this.localUser.name,
       userName:this.localUser.username,
+      userId:this.localUser.id,
       date:Date.now()
     })
     .then(()=>{

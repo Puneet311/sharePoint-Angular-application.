@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
@@ -10,15 +11,21 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  email:any=null
+  user:any
+  uid:any
   constructor(
     private auth:AuthService,
     private toastr:ToastrService,
-    private router:Router) {
-
-     auth.getUser().subscribe((user:any)=>{
-       this.email=user?.email
-     })
+    private router:Router,
+    private db:AngularFireDatabase) {
+      auth.getUser().subscribe((user:any)=>{
+        this.uid=user?.uid
+        this.db.object(`/user/${this.uid}/`).valueChanges().subscribe((userObj:any)=>{
+          if(userObj){
+            this.user=userObj
+          }
+        })
+      })
     }
 
   ngOnInit(): void {
@@ -35,7 +42,8 @@ export class HeaderComponent implements OnInit {
         this.toastr.info("Logout success",'',{
           closeButton:true
         })
-        this.email=null
+        this.user=null
+        this.uid=''
       })
     
     }

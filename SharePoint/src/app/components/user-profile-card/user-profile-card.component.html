@@ -1,0 +1,30 @@
+<div *ngIf="user" class="card">
+<div *ngIf="user.picture" class="bg-color">
+    <div class="div-rounded">
+        <img [src]="user.picture"
+        width="160px"
+        height="160px"
+        class="image-fluid rounded-circle"
+        >
+    </div>
+</div>
+<br>
+<br>
+    <div class="card-body">        
+        <div class="card-title">
+            <h2 class="text-center heading">
+                {{user?.name | uppercase}}
+            </h2> 
+        </div>
+        <div class="sub-title mt-2">
+            <p class="text-center mt-2 heading h5">{{user?.bio}}</p>
+            <p class="h4 mt-2">Your birthday: <span class="h5">{{user?.dob | date : "mediumDate"}}</span></p>
+            <p class="h4 mt-2">Email: <span class="h5">{{user?.email}}</span></p>
+            <p class="h4 mt-2">Username: <span class="h5">{{user?.username}}</span></p>
+            <p class="h4 mt-2">Country: <span class="h5">{{user?.country}}</span></p>
+        </div>
+    </div>
+    <div class="maincard">
+    <svg class="curve-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,320L48,293.3C96,267,192,213,288,181.3C384,149,480,139,576,128C672,117,768,107,864,106.7C960,107,1056,117,1152,133.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+</div>
