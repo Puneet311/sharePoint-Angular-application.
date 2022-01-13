@@ -1,0 +1,10 @@
+<ng-container *ngIf="usersImage.length !== 0">
+    <div class="d-flex flex-row mt-4">
+        <div *ngFor="let image of usersImage" class="image-div">
+            <img [src]="image" width="200px" height="200px">
+        </div>
+    </div>
+</ng-container>
+<div *ngIf="usersImage.length === 0" class="mt-4">
+    <h4 class="text-white text-center">You have not posted anything till now! Go and post your image.</h4>
+</div>

@@ -28,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserProfileCardComponent } from './components/user-profile-card/user-profile-card.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { UserImageGridComponent } from './components/user-image-grid/user-image-grid.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     SignUpComponent,
     PageNotFoundComponent,
     UserProfileCardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserImageGridComponent
   ],
   imports: [
     BrowserModule,

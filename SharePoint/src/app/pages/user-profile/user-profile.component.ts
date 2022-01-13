@@ -18,22 +18,20 @@ export class UserProfileComponent implements OnInit {
     private auth: AuthService,
     private db: AngularFireDatabase,
     private toastr: ToastrService
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.isLoading = true;
     this.auth.getUser().subscribe((user: any) => {
       this.uid = user?.uid;
       this.db
         .object(`/user/${this.uid}`)
         .valueChanges()
-        .subscribe((userObj) => {
+        .subscribe((userObj:any) => {
           if (userObj) {
             this.user = userObj;
+            // this.uid=userObj.id
           }
         });
-    });
-    this.db
+        this.db
       .object(`/posts`)
       .valueChanges()
       .subscribe((obj) => {
@@ -53,5 +51,9 @@ export class UserProfileComponent implements OnInit {
           this.isLoading = false;
         }
       });
+    });
+  }
+
+  ngOnInit(): void {
   }
 }
