@@ -27,6 +27,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reset(){
+    this.signInForm.reset()
+  }
+
   onSubmit(){
     const {email,password}=this.signInForm.value
 

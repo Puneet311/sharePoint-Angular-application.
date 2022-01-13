@@ -33,6 +33,9 @@
             placeholder="Enter your name"
             formControlName="name"
             >
+            <div class="text-danger" *ngIf="signUpForm.controls.name.touched || signUpForm.controls.name.dirty">
+                <div *ngIf="signUpForm.controls.name.errors">Name is required</div>
+            </div>
         </div>
         <div class="form-group mt-2">
             <label for="email" class="form-label">Email</label>
@@ -42,6 +45,10 @@
             placeholder="Enter your email"
             formControlName="email"
             >
+            <div class="text-danger" *ngIf="signUpForm.controls.email.touched || signUpForm.controls.email.dirty">
+                <div *ngIf="signUpForm.controls.email.errors.required">Email is required</div>
+                <div *ngIf="signUpForm.controls.email.errors.email">Please enter a valid email id.</div>
+            </div>
         </div>
         <div class="form-group mt-2">
             <label for="dob" class="form-label">Date of Birth</label>
@@ -60,6 +67,9 @@
             placeholder="Enter your Username"
             formControlName="username"
             >
+            <div class="text-danger" *ngIf="signUpForm.controls.username.touched || signUpForm.controls.username.dirty">
+                <div *ngIf="signUpForm.controls.username.errors">Username is required</div>
+            </div>
         </div>
         <div class="form-group mt-2">
             <label for="password" class="form-label">Password</label>
@@ -69,6 +79,10 @@
             placeholder="Enter your Password"
             formControlName="password"
             >
+            <div class="text-danger" *ngIf="signUpForm.controls.password.touched || signUpForm.controls.password.dirty">
+                <div *ngIf="signUpForm.controls.password.errors.required">Password is required</div>
+                <div *ngIf="signUpForm.controls.password.errors.minLength">Password must be of atleast 6 character.</div>
+            </div>
         </div>
         <div class="form-group mt-2">
             <label for="country" class="form-label">Country</label>
@@ -90,10 +104,16 @@
         </div>
         <div class="mt-4 text-center">
             <button 
+            (click)="reset()"
+             class="btn btn-secondary text-white mx-2"
+             >
+             Reset
+            </button>
+            <button 
             type="submit"
             (click)="onSubmit()"
              class="btn btn-primary text-white"
-             [disabled]="signUpForm.controls.invalid"
+             [disabled]="signUpForm.invalid"
              >
              Sign Up
             </button>

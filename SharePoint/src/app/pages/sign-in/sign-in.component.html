@@ -12,7 +12,7 @@
           <div
             class="card-body"
           >
-            <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
+            <form [formGroup]="signInForm">
               <div class="form-group row my-3">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
@@ -25,6 +25,10 @@
                     placeholder="Enter Email"
                     required
                   />
+                  <div class="text-danger" *ngIf="signInForm.controls.email.touched || signInForm.controls.email.dirty">
+                    <div *ngIf="signInForm.controls.email.errors.required">Email is required</div>
+                    <div *ngIf="signInForm.controls.email.errors.email">Please enter a valid email id.</div>
+                </div>
                 </div>
               </div>
               <div class="form-group row my-3">
@@ -41,6 +45,10 @@
                     placeholder="Enter password"
                     required
                   />
+                  <div class="text-danger" *ngIf="signInForm.controls.password.touched || signInForm.controls.password.dirty">
+                    <div *ngIf="signInForm.controls.password.errors.required">Password is required</div>
+                    <!-- <div *ngIf="signUpForm.controls.password.errors.minLength">Password must be of atleast 6 character.</div> -->
+                </div>
   
                   <small class="form-text text-center text-muted">
                     minimun length of the password should be 6.
@@ -48,9 +56,14 @@
                 </div>
               </div>
               <div class="text-center mt-5">
+                <button class="btn btn-secondary mx-2" (click)="reset()">
+                  Reset
+                </button>
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-primary mx-2"
                   type="submit"
+                  [disabled]="signInForm.invalid"
+                  (click)="onSubmit()"
                 >
                   Sign In
                 </button>
